@@ -1,5 +1,5 @@
-# db_postgres
-Scripts and miscellanea for setting up the database used in
+# data_management
+Scripts, documents and miscellanea for data management in
 
 OpenStreetMap for Dyslexics by Sinergis S.r.l. & Associazione Culturale "lo Studiolo"
 
