@@ -10,7 +10,7 @@ CREATE TABLE osm_data.base_boundary (
     osm_id bigint,
     admin_level text,
     tags hstore,
-    way geometry(Geometry,900913)
+    way geometry(Geometry,3857)
 );
 CREATE INDEX base_boundary_gist ON osm_data.base_boundary USING gist(way);
 -- select name,osm_id,admin_level,tags,way 
@@ -31,7 +31,7 @@ CREATE TABLE osm_data.base_highway(
     bridge text,
     tunnel text,
     tags hstore,
-    way geometry(LineString,900913)
+    way geometry(LineString,3857)
 );
 CREATE INDEX base_highway_gist ON osm_data.base_highway USING gist(way);
 -- select name, osm_id, highway, surface, bridge, tunnel, tags, way 
@@ -47,7 +47,7 @@ CREATE TABLE osm_data.base_building(
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     osm_id bigint,
     building text,
-    way geometry(Geometry,900913)
+    way geometry(Geometry,3857)
 );
 CREATE INDEX base_building_gist ON osm_data.base_building USING gist(way);
 -- select osm_id,building,way 
@@ -65,7 +65,7 @@ CREATE TABLE osm_data.base_aeroway(
     osm_id bigint,
     aeroway text,
     tags hstore,
-    way geometry(Geometry,900913)
+    way geometry(Geometry,3857)
 );
 CREATE INDEX base_aeroway_gist ON osm_data.base_aeroway USING gist(way);
 -- select osm_id,aeroway,name,tags,way
@@ -84,7 +84,7 @@ CREATE TABLE osm_data.amen_restaurant(
     "addr:housenumber" text,
     amenity text,
     tags hstore,
-    way geometry(Point,900913)  
+    way geometry(Point,3857)  
 );
 CREATE INDEX amen_restaurant_gist ON osm_data.amen_restaurant USING gist(way);
 -- select osm_id,"addr:housenumber",amenity,name,tags,way
@@ -102,7 +102,7 @@ CREATE TABLE osm_data.amen_health(
     "addr:housenumber" text,
     amenity text,
     tags hstore,
-    way geometry(Point,900913)  
+    way geometry(Point,3857)  
 );
 CREATE INDEX amen_health_gist ON osm_data.amen_health USING gist(way);
 -- select osm_id,"addr:housenumber",amenity,name,tags,way
@@ -120,7 +120,7 @@ CREATE TABLE osm_data.amen_education(
     "addr:housenumber" text,
     amenity text,
     tags hstore,
-    way geometry(Point,900913)
+    way geometry(Point,3857)
 );
 CREATE INDEX amen_education_gist ON osm_data.amen_education USING gist(way);
 -- select osm_id,"addr:housenumber",amenity,name,tags,way
@@ -139,7 +139,7 @@ CREATE TABLE osm_data.addr_number(
     amenity text,
     shop text,
     tags hstore,
-    way geometry(Point,900913)
+    way geometry(Point,3857)
 );
 CREATE INDEX addr_number_gist ON osm_data.addr_number USING gist(way);
 -- select osm_id,"addr:housenumber",amenity,name,shop,tags,way
@@ -157,7 +157,7 @@ CREATE TABLE osm_data.shop_supermarket(
     "addr:housenumber" text,
     shop text,
     tags hstore,
-    way geometry(Point,900913)
+    way geometry(Point,3857)
 );
 CREATE INDEX shop_supermarket_gist ON osm_data.shop_supermarket USING gist(way);
 -- select osm_id,"addr:housenumber",shop,name,tags,way
@@ -175,7 +175,7 @@ CREATE TABLE osm_data.shop_cloth(
     "addr:housenumber" text,
     shop text,
     tags hstore,
-    way geometry(Point,900913)
+    way geometry(Point,3857)
 );
 CREATE INDEX shop_cloth_gist ON osm_data.shop_cloth USING gist(way);
 -- select osm_id,"addr:housenumber",shop,name,tags,way
@@ -193,7 +193,7 @@ CREATE TABLE osm_data.shop_car(
     "addr:housenumber" text,
     shop text,
     tags hstore,
-    way geometry(Point,900913)
+    way geometry(Point,3857)
 );
 CREATE INDEX shop_car_gist ON osm_data.shop_car USING gist(way);
 -- select osm_id,"addr:housenumber",shop,name,tags,way
@@ -211,7 +211,7 @@ CREATE TABLE osm_data.shop_computer(
     "addr:housenumber" text,
     shop text,
     tags hstore,
-    way geometry(Point,900913)
+    way geometry(Point,3857)
 );
 CREATE INDEX shop_computer_gist ON osm_data.shop_computer USING gist(way);
 -- select osm_id,"addr:housenumber",shop,name,tags,way

@@ -178,7 +178,7 @@ DROP FUNCTION IF EXISTS manager.tile2envelope(integer, integer, integer);
 CREATE OR REPLACE FUNCTION manager.tile2envelope(zValue integer, xValue integer, yValue integer)
     RETURNS geometry AS
 $BODY$
--- now returns the bbox in epsg 900913
+-- now returns the bbox in epsg 3857
 DECLARE
     lat1 double precision;
     lon1 double precision;
@@ -193,7 +193,7 @@ BEGIN
     --latlon2 := manager.num2deg(zValue,xValue+1,yValue+1);
     -- xmin        ymin        xmax        ymax
     -- latlon1[1], latlon2[0], latlon2[1], latlon1[0]
-    RETURN ST_Transform(ST_MakeEnvelope(lon1, lat1, lon2, lat2, 4326) , 900913);
+    RETURN ST_Transform(ST_MakeEnvelope(lon1, lat1, lon2, lat2, 4326) , 3857);
     --RETURN ST_MakeEnvelope(latlon1[1], latlon2[0], latlon2[1], latlon1[0], 4326);
 END;
 $BODY$
@@ -252,5 +252,5 @@ LANGUAGE plpgsql STABLE;
 --select * FROM manager.data4tile('osm_data.base_boundary','','id','way',6,28,16);
 --select * FROM manager.data4tile('osm_data.base_building','','id','way',16,28792,17377);
 --create table manager.data_6_28_16 as select * FROM manager.data4tile('osm_data.base_boundary','','id','way',6,28,16);
-select * FROM manager.data4tile('osm_data.base_boundary','admin_level = ''6''','id','way',6,28,16);
+-- select * FROM manager.data4tile('osm_data.base_boundary','admin_level = ''6''','id','way',6,28,16);
 -- create table manager.tile_6_28_16 as select * from manager.tile2envelope(6,28,16);
