@@ -21,8 +21,9 @@ echo vacuum full;                           | "C:\osm4dys\PostgreSQL\9.3\bin\psq
 echo analyze
 echo analyze;                               | "C:\osm4dys\PostgreSQL\9.3\bin\psql.exe" -d osm4dys -U postgres
 
-pause
+
 echo update osm4dys with fresh osm data
+pause
 echo select manager.update_data_from_osm(); | "C:\osm4dys\PostgreSQL\9.3\bin\psql.exe" -d osm4dys -U postgres
 echo DONE
 pause

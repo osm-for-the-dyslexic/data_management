@@ -1,0 +1,2 @@
+python generate_tiles.py
+pause

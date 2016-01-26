@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE Map [
+    <!ENTITY db_type "postgis">
+    <!ENTITY db_password "XXXXXXX">
+    <!ENTITY db_host "localhost">
+    <!ENTITY db_port "5432">
+    <!ENTITY db_user "postgres">
+    <!ENTITY db_name "osm4dys">
+    <!ENTITY db_estimate_extent "true">
+    <!ENTITY srs_3857 "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+]>
+
+
+
+<Map background-color="#b5d0d0" srs="&srs_3857;" minimum-version="2.0.0">
+    <FontSet name="dys-fonts">
+        <Font face-name="OpenDyslexicAlta Regular" />
+    </FontSet>
+    <FontSet name="bold-fonts">
+        <Font face-name="DejaVu Sans Bold" />
+        <Font face-name="unifont Medium" />
+    </FontSet>
+    <FontSet name="oblique-fonts">
+        <Font face-name="DejaVu Sans Oblique" />
+        <Font face-name="unifont Medium" />
+    </FontSet>
+    
+    
+    <Style name="simplified_land_polygons">
+        <Rule>
+            <PolygonSymbolizer fill-opacity="0.5" fill="#555555"/>
+        </Rule>
+        <Rule>
+            <LineSymbolizer stroke="#000000" stroke-width="0.3"/>
+        </Rule>    
+    </Style>
+    
+    <Layer name="simplified_land_polygons" status="on" srs="&srs_3857;">
+        <StyleName>simplified_land_polygons</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT gid,fid,id,geom
+                FROM constant_data.simplified_land_polygons
+                ) AS simplified_land_polygons
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+        </Datasource>
+    </Layer>
+</Map>
+
