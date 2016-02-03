@@ -11,28 +11,28 @@ rem the default is -c (create, removing existing data) use -a to append data
 rem osm2pgsql.exe --help
 
 rem africa
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\africa-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -c -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\africa-latest.osm.pbf
 
 rem antarctica
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\antarctica-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\antarctica-latest.osm.pbf
 
 rem asia
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\asia-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\asia-latest.osm.pbf
 
 rem australia-oceania
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\australia-oceania-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\australia-oceania-latest.osm.pbf
 
 rem central-america
-..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\central-america-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\central-america-latest.osm.pbf
 
 rem europe
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\europe-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\europe-latest.osm.pbf
 
 rem north-america
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\north-america-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\north-america-latest.osm.pbf
 
 rem south-america
-rem ..\osm2pgsql_x64\osm2pgsql.exe -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\south-america-latest.osm.pbf
+..\osm2pgsql_x64\osm2pgsql.exe -a -H localhost -d planetosm -U postgres -s -G -k -C 800 -S ..\osm2pgsql_x64\default.style C:\osm4dys\osm_data\south-america-latest.osm.pbf
 
 pause
 
