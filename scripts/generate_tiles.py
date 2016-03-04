@@ -215,45 +215,60 @@ if __name__ == "__main__":
     # Start with an overview
     # World
     bbox = (-180.0,-90.0, 180.0,90.0)
-    render_tiles(bbox, mapfile, tile_dir, 0, 5, "World")
+    #render_tiles(bbox, mapfile, tile_dir, 0, 2, "World")
+    #render_tiles(bbox, mapfile, tile_dir, 0, 5, "World")
+    
+    # Italy NE/NO
+    # <gmd:EX_GeographicBoundingBox>
+    #     <gmd:westBoundLongitude><gco:Decimal>6.4379882812</gco:Decimal></gmd:westBoundLongitude>
+    #     <gmd:eastBoundLongitude><gco:Decimal>13.8256866932</gco:Decimal></gmd:eastBoundLongitude>
+    #     <gmd:southBoundLatitude><gco:Decimal>43.4369659652</gco:Decimal></gmd:southBoundLatitude>
+    #     <gmd:northBoundLatitude><gco:Decimal>47.2074948249</gco:Decimal></gmd:northBoundLatitude>
+    # </gmd:EX_GeographicBoundingBox>
+    bbox = (6.43, 43.43, 13.83, 47.21)
+    #render_tiles(bbox, mapfile, tile_dir, 0, 6, "Italy ne-no")
 
-    #minZoom = 10
-    #maxZoom = 16
-    #bbox = (-2, 50.0,1.0,52.0)
-    #render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom)
+    # Switzerland
+    # <gmd:EX_GeographicBoundingBox>
+    #     <gmd:westBoundLongitude><gco:Decimal>5.9106445313</gco:Decimal></gmd:westBoundLongitude>
+    #     <gmd:eastBoundLongitude><gco:Decimal>10.7885742188</gco:Decimal></gmd:eastBoundLongitude>
+    #     <gmd:southBoundLatitude><gco:Decimal>45.6294049206</gco:Decimal></gmd:southBoundLatitude>
+    #     <gmd:northBoundLatitude><gco:Decimal>47.8426576282</gco:Decimal></gmd:northBoundLatitude>
+    # </gmd:EX_GeographicBoundingBox>
+    bbox = (5.91, 45.62, 10.79, 47.85)
+    #render_tiles(bbox, mapfile, tile_dir, 6, 12, "Switzerland")
+    
 
-    # Muenchen
-    #bbox = (11.4,48.07, 11.7,48.22)
-    #render_tiles(bbox, mapfile, tile_dir, 1, 12 , "Muenchen")
+    # Austria
+    # <gmd:EX_GeographicBoundingBox>
+    #     <gmd:westBoundLongitude><gco:Decimal>9.2504882813</gco:Decimal></gmd:westBoundLongitude>
+    #     <gmd:eastBoundLongitude><gco:Decimal>17.2924804688</gco:Decimal></gmd:eastBoundLongitude>
+    #     <gmd:southBoundLatitude><gco:Decimal>46.2710374728</gco:Decimal></gmd:southBoundLatitude>
+    #     <gmd:northBoundLatitude><gco:Decimal>49.1457836178</gco:Decimal></gmd:northBoundLatitude>
+    # </gmd:EX_GeographicBoundingBox>
+    bbox = (9.25, 46.27, 17.30, 49.15)
+    #render_tiles(bbox, mapfile, tile_dir, 6, 9, "Austria")
+    
+    # Berlin
+    # <gmd:EX_GeographicBoundingBox>
+    #    <gmd:westBoundLongitude><gco:Decimal>13.0407714844</gco:Decimal></gmd:westBoundLongitude>
+    #    <gmd:eastBoundLongitude><gco:Decimal>13.8098144531</gco:Decimal></gmd:eastBoundLongitude>
+    #    <gmd:southBoundLatitude><gco:Decimal>52.3151952644</gco:Decimal></gmd:southBoundLatitude>
+    #    <gmd:northBoundLatitude><gco:Decimal>52.7063471495</gco:Decimal></gmd:northBoundLatitude>
+    # </gmd:EX_GeographicBoundingBox>
+    bbox = (13.04, 52.32, 13.81, 52.71)
+    render_tiles(bbox, mapfile, tile_dir, 6, 13, "Berlin")
 
-    # Muenchen+
-    #bbox = (11.3,48.01, 12.15,48.44)
-    #render_tiles(bbox, mapfile, tile_dir, 7, 12 , "Muenchen+")
+    # Iceland
+    # <gmd:EX_GeographicBoundingBox>
+    #     <gmd:westBoundLongitude><gco:Decimal>-24.6588134766</gco:Decimal></gmd:westBoundLongitude>
+    #     <gmd:eastBoundLongitude><gco:Decimal>-13.4033203125</gco:Decimal></gmd:eastBoundLongitude>
+    #     <gmd:southBoundLatitude><gco:Decimal>63.1146376325</gco:Decimal></gmd:southBoundLatitude>
+    #     <gmd:northBoundLatitude><gco:Decimal>66.6121261485</gco:Decimal></gmd:northBoundLatitude>
+    # </gmd:EX_GeographicBoundingBox>
+    #bbox = (-24.65, 63.11, -13.41, 66.62)
+    #render_tiles(bbox, mapfile, tile_dir, 6, 12, "Iceland")
+    
+    
+    
 
-    # Muenchen++
-    #bbox = (10.92,47.7, 12.24,48.61)
-    #render_tiles(bbox, mapfile, tile_dir, 7, 12 , "Muenchen++")
-
-    # Nuernberg
-    #bbox=(10.903198,49.560441,49.633534,11.038085)
-    #render_tiles(bbox, mapfile, tile_dir, 10, 16, "Nuernberg")
-
-    # Karlsruhe
-    #bbox=(8.179113,48.933617,8.489252,49.081707)
-    #render_tiles(bbox, mapfile, tile_dir, 10, 16, "Karlsruhe")
-
-    # Karlsruhe+
-    #bbox = (8.3,48.95,8.5,49.05)
-    #render_tiles(bbox, mapfile, tile_dir, 1, 16, "Karlsruhe+")
-
-    # Augsburg
-    #bbox = (8.3,48.95,8.5,49.05)
-    #render_tiles(bbox, mapfile, tile_dir, 1, 16, "Augsburg")
-
-    # Augsburg+
-    #bbox=(10.773251,48.369594,10.883834,48.438577)
-    #render_tiles(bbox, mapfile, tile_dir, 10, 14, "Augsburg+")
-
-    # Europe+
-    #bbox = (1.0,10.0, 20.6,50.0)
-    #render_tiles(bbox, mapfile, tile_dir, 1, 11 , "Europe+")

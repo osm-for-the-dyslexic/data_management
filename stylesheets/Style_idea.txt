@@ -1,0 +1,140 @@
+* Level 0
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 1
+  (C) ne_50m_admin_0_countries_union        (Text)           [not seven seas]
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 2
+  (C) ne_50m_admin_0_countries_union        (Text)           [not seven seas]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 3
+  (C) ne_50m_admin_0_countries_union        (Text)           [not seven seas]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+    
+* Level 4
+  (E) flags                                 (Point)          [labelrank <= 3]
+  (D) ne_50m_admin_0_countries              (Line)           [thin line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 5
+  (E) flags                                 (Point)          [many]
+  (D) ne_50m_admin_0_countries              (Line)           [thin line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+    
+* Level 6
+  (H) ne_50m_populated_places               (Text)
+  (G) base_boundary_capital                 (Text)           [capital = yes]
+  (F) base_highway                          (Line)           [motorway and primary]
+  (D) ne_50m_admin_0_countries              (Line)           [thick line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 7
+  (H) ne_50m_populated_places               (Text)
+  (G) base_boundary_capital                 (Text)           [capital = yes]
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (D) ne_50m_admin_0_countries              (Line)           [thick line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 8
+  (H) ne_50m_populated_places               (Text)
+  (G) base_boundary_capital                 (Text)           [capital = yes]
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (D) ne_50m_admin_0_countries              (Line)           [thick line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 9
+  (J) base_aeoroway                         (Marker)
+  (H) ne_50m_populated_places               (Text)
+  (G) base_boundary_capital                 (Text)           [capital = yes]
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (D) ne_50m_admin_0_countries              (Line)           [thick line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 10
+  (J) base_aeoroway                         (Marker)
+  (H) ne_50m_populated_places               (Text)
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (D) ne_50m_admin_0_countries              (Line)           [thick line]
+  (B) ne_50m_urban_areas                    (Polygon)
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+   
+* Level 11
+  (L) base_highway_label                    (Text)           [motor way primary secondary]
+  (K) base_boundary                         (Text)           [admin_level 4,5,6,7,8]
+  (J) base_aeoroway                         (Marker)
+  (I) base_buildings                        (Polygon)
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 12
+  (L) base_highway_label                    (Text)           [motor way primary secondary]
+  (K) base_boundary                         (Text)           [admin_level 8]
+  (J) base_aeoroway                         (Marker)
+  (I) base_buildings                        (Polygon)
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 13
+  (K) base_boundary                         (Text)           [admin_level 8]
+  (J) base_aeoroway                         (Marker)
+  (I) base_buildings                        (Polygon)
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 14
+  (K) base_boundary                         (Text)           [admin_level 8]
+  (J) base_aeoroway                         (Marker)
+  (I) base_buildings                        (Polygon)
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+
+* Level 15
+  (K) base_boundary                         (Text)           [admin_level 8]
+  (J) base_aeoroway                         (Marker)
+  (I) base_buildings                        (Polygon)
+  (F) base_highway                          (Line)           [motorway and primary]
+  (F) base_highway                          (Line)           [secondary]
+  (F) base_highway                          (Line)           [other]
+  (A) simplified_land_polygons              (Line)
+  (A) simplified_land_polygons              (Polygon)
+

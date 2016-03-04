@@ -1,0 +1,39 @@
+NE/NO
+<gmd:EX_GeographicBoundingBox>
+    <gmd:westBoundLongitude><gco:Decimal>6.4379882812</gco:Decimal></gmd:westBoundLongitude>
+    <gmd:eastBoundLongitude><gco:Decimal>13.8256866932</gco:Decimal></gmd:eastBoundLongitude>
+    <gmd:southBoundLatitude><gco:Decimal>43.4369659652</gco:Decimal></gmd:southBoundLatitude>
+    <gmd:northBoundLatitude><gco:Decimal>47.2074948249</gco:Decimal></gmd:northBoundLatitude>
+</gmd:EX_GeographicBoundingBox>
+
+SWITZ
+<gmd:EX_GeographicBoundingBox>
+    <gmd:westBoundLongitude><gco:Decimal>5.9106445313</gco:Decimal></gmd:westBoundLongitude>
+    <gmd:eastBoundLongitude><gco:Decimal>10.7885742188</gco:Decimal></gmd:eastBoundLongitude>
+    <gmd:southBoundLatitude><gco:Decimal>45.6294049206</gco:Decimal></gmd:southBoundLatitude>
+    <gmd:northBoundLatitude><gco:Decimal>47.8426576282</gco:Decimal></gmd:northBoundLatitude>
+</gmd:EX_GeographicBoundingBox>
+
+aust
+<gmd:EX_GeographicBoundingBox>
+    <gmd:westBoundLongitude><gco:Decimal>9.2504882813</gco:Decimal></gmd:westBoundLongitude>
+    <gmd:eastBoundLongitude><gco:Decimal>17.2924804688</gco:Decimal></gmd:eastBoundLongitude>
+    <gmd:southBoundLatitude><gco:Decimal>46.2710374728</gco:Decimal></gmd:southBoundLatitude>
+    <gmd:northBoundLatitude><gco:Decimal>49.1457836178</gco:Decimal></gmd:northBoundLatitude>
+</gmd:EX_GeographicBoundingBox>
+
+berlin
+<gmd:EX_GeographicBoundingBox>
+    <gmd:westBoundLongitude><gco:Decimal>13.0407714844</gco:Decimal></gmd:westBoundLongitude>
+    <gmd:eastBoundLongitude><gco:Decimal>13.8098144531</gco:Decimal></gmd:eastBoundLongitude>
+    <gmd:southBoundLatitude><gco:Decimal>52.3151952644</gco:Decimal></gmd:southBoundLatitude>
+    <gmd:northBoundLatitude><gco:Decimal>52.7063471495</gco:Decimal></gmd:northBoundLatitude>
+</gmd:EX_GeographicBoundingBox>
+
+iceland
+<gmd:EX_GeographicBoundingBox>
+    <gmd:westBoundLongitude><gco:Decimal>-24.6588134766</gco:Decimal></gmd:westBoundLongitude>
+    <gmd:eastBoundLongitude><gco:Decimal>-13.4033203125</gco:Decimal></gmd:eastBoundLongitude>
+    <gmd:southBoundLatitude><gco:Decimal>63.1146376325</gco:Decimal></gmd:southBoundLatitude>
+    <gmd:northBoundLatitude><gco:Decimal>66.6121261485</gco:Decimal></gmd:northBoundLatitude>
+</gmd:EX_GeographicBoundingBox>
