@@ -215,8 +215,7 @@ if __name__ == "__main__":
     # Start with an overview
     # World
     bbox = (-180.0,-90.0, 180.0,90.0)
-    #render_tiles(bbox, mapfile, tile_dir, 0, 2, "World")
-    #render_tiles(bbox, mapfile, tile_dir, 0, 5, "World")
+    render_tiles(bbox, mapfile, tile_dir, 0, 6, "World")
     
     # Italy NE/NO
     # <gmd:EX_GeographicBoundingBox>
@@ -226,7 +225,7 @@ if __name__ == "__main__":
     #     <gmd:northBoundLatitude><gco:Decimal>47.2074948249</gco:Decimal></gmd:northBoundLatitude>
     # </gmd:EX_GeographicBoundingBox>
     bbox = (6.43, 43.43, 13.83, 47.21)
-    #render_tiles(bbox, mapfile, tile_dir, 0, 6, "Italy ne-no")
+    render_tiles(bbox, mapfile, tile_dir, 7, 13, "Italy ne-no")
 
     # Switzerland
     # <gmd:EX_GeographicBoundingBox>
@@ -236,7 +235,7 @@ if __name__ == "__main__":
     #     <gmd:northBoundLatitude><gco:Decimal>47.8426576282</gco:Decimal></gmd:northBoundLatitude>
     # </gmd:EX_GeographicBoundingBox>
     bbox = (5.91, 45.62, 10.79, 47.85)
-    #render_tiles(bbox, mapfile, tile_dir, 6, 12, "Switzerland")
+    render_tiles(bbox, mapfile, tile_dir, 7, 12, "Switzerland")
     
 
     # Austria
@@ -247,7 +246,7 @@ if __name__ == "__main__":
     #     <gmd:northBoundLatitude><gco:Decimal>49.1457836178</gco:Decimal></gmd:northBoundLatitude>
     # </gmd:EX_GeographicBoundingBox>
     bbox = (9.25, 46.27, 17.30, 49.15)
-    #render_tiles(bbox, mapfile, tile_dir, 6, 9, "Austria")
+    render_tiles(bbox, mapfile, tile_dir, 7, 11, "Austria")
     
     # Berlin
     # <gmd:EX_GeographicBoundingBox>
@@ -257,7 +256,7 @@ if __name__ == "__main__":
     #    <gmd:northBoundLatitude><gco:Decimal>52.7063471495</gco:Decimal></gmd:northBoundLatitude>
     # </gmd:EX_GeographicBoundingBox>
     bbox = (13.04, 52.32, 13.81, 52.71)
-    render_tiles(bbox, mapfile, tile_dir, 6, 13, "Berlin")
+    render_tiles(bbox, mapfile, tile_dir, 7, 15, "Berlin")
 
     # Iceland
     # <gmd:EX_GeographicBoundingBox>
@@ -266,8 +265,8 @@ if __name__ == "__main__":
     #     <gmd:southBoundLatitude><gco:Decimal>63.1146376325</gco:Decimal></gmd:southBoundLatitude>
     #     <gmd:northBoundLatitude><gco:Decimal>66.6121261485</gco:Decimal></gmd:northBoundLatitude>
     # </gmd:EX_GeographicBoundingBox>
-    #bbox = (-24.65, 63.11, -13.41, 66.62)
-    #render_tiles(bbox, mapfile, tile_dir, 6, 12, "Iceland")
+    bbox = (-24.65, 63.11, -13.41, 66.62)
+    render_tiles(bbox, mapfile, tile_dir, 7, 12, "Iceland")
     
     
     

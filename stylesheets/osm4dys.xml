@@ -3,11 +3,14 @@
 <!DOCTYPE Map [
     <!ENTITY db_type "postgis">
     <!ENTITY db_password "osm4dys">
-    <!ENTITY db_host "localhost">
+    <!ENTITY db_host "20.39.146.128">
     <!ENTITY db_port "5432">
     <!ENTITY db_user "postgres">
     <!ENTITY db_name "osm4dys">
-    <!ENTITY db_estimate_extent "true">
+    <!ENTITY db_estimate_extent "false">
+    <!-- <!ENTITY db_generic_extent ""> -->
+    <!ENTITY db_generic_extent "-20237886,-74304296,20237886,18855574">
+    
     <!ENTITY srs_3857 "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
     
     <!ENTITY maxscale_zoom0 "<MaxScaleDenominator>250000000000</MaxScaleDenominator>">
@@ -50,7 +53,16 @@
     <!ENTITY minscale_zoom18 "">
 ]>
 
-<Map background-color="#addeff" srs="&srs_3857;" minimum-version="2.0.0">
+<Map background-color="#addeff" 
+     srs="&srs_3857;" 
+     minimum-version="2.0.0"
+     background-image="pool.png"
+     buffer-size="256"
+>
+    <Parameters>
+        <Parameter name="sizes">45,45</Parameter>
+    </Parameters>
+
     <FontSet name="dys-fonts">
         <Font face-name="OpenDyslexicAlta Regular" />
     </FontSet>
@@ -62,27 +74,15 @@
         <Font face-name="DejaVu Sans Oblique" />
         <Font face-name="unifont Medium" />
     </FontSet>
-
-    <Style name="ne_50m_admin_0_countries_union">
-        <Rule>
-            &maxscale_zoom3;
-            &minscale_zoom3;
-            <TextSymbolizer face-name="OpenDyslexicAlta Regular" size="10" fill="black" placement="interior" allow-overlap="false">[region_wb]</TextSymbolizer>
-        </Rule>
-    </Style>
+   
     <Style name="simplified_land_polygons">
         <Rule>
             &maxscale_zoom0;
-            &minscale_zoom5;
-            <PolygonSymbolizer fill-opacity="0.5" fill="#dbd7ce"/>
+            &minscale_zoom15;
+            <LineSymbolizer stroke="#b38600" stroke-width="0.26"/>
+            <PolygonSymbolizer fill-opacity="1" fill="#fff2cc"/>
         </Rule>
-        <Rule>
-            &maxscale_zoom0;
-            &minscale_zoom5;
-            <LineSymbolizer stroke="#000000" stroke-width="0.26"/>
-        </Rule>    
-    </Style>
-
+    </Style>    
     <Layer name="simplified_land_polygons" status="on" srs="&srs_3857;">
         <StyleName>simplified_land_polygons</StyleName>
         <Datasource>
@@ -99,15 +99,51 @@
             <Parameter name="user">&db_user;</Parameter>
             <Parameter name="dbname">&db_name;</Parameter>
             <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+    <Style name="ne_50m_urban_areas">
+        <Rule>
+            &maxscale_zoom2;
+            &minscale_zoom10;
+            <PolygonSymbolizer fill-opacity="0.5" fill="#CC3300"/>
+        </Rule>
+    </Style>
+    <Layer name="ne_50m_urban_areas" status="on" srs="&srs_3857;">
+        <StyleName>ne_50m_urban_areas</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM constant_data.ne_50m_urban_areas
+                ) AS ne_50m_urban_areas
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
         </Datasource>
     </Layer>    
     
+    <Style name="ne_50m_admin_0_countries_union">
+        <Rule>
+            &maxscale_zoom1;
+            &minscale_zoom3;
+            <Filter>not [continent] = 'Seven seas (open ocean)'</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#fff2cc"  halo-radius="3" text-transform="uppercase" size="18" fill="black" placement="interior" allow-overlap="false">[continent]</TextSymbolizer>
+        </Rule>
+    </Style>    
     <Layer name="ne_50m_admin_0_countries_union" status="on" srs="&srs_3857;">
         <StyleName>ne_50m_admin_0_countries_union</StyleName>
         <Datasource>
             <Parameter name="table">
                 (
-                SELECT st_union,region_wb
+                SELECT st_union,continent
                 FROM constant_data.ne_50m_admin_0_countries_union
                 ) AS ne_50m_admin_0_countries_union
             </Parameter>
@@ -118,8 +154,517 @@
             <Parameter name="user">&db_user;</Parameter>
             <Parameter name="dbname">&db_name;</Parameter>
             <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+    
+    <Style name="ne_50m_admin_0_countries">
+        <Rule>
+            &maxscale_zoom4;
+            &minscale_zoom5;
+            <LineSymbolizer stroke="#e6ac00" stroke-width="0.5"/>
+        </Rule>
+        <Rule>
+            &maxscale_zoom6;
+            &minscale_zoom10;
+            <LineSymbolizer stroke="#e6ac00" stroke-width="0.6"/>
+        </Rule>        
+    </Style>    
+    <Layer name="ne_50m_admin_0_countries" status="on" srs="&srs_3857;">
+        <StyleName>ne_50m_admin_0_countries</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT name,geom
+                FROM constant_data.ne_50m_admin_0_countries 
+                ) AS ne_50m_admin_0_countries
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
         </Datasource>
     </Layer>    
+
+
+    <Style name="flags">
+        <Rule>
+            &maxscale_zoom4;
+            &minscale_zoom4;
+            <Filter>[labelrank] &lt;= 3 and ([type] = 'Sovereign country' or [type] = 'Country') and [pop_est] &gt; 1000000 </Filter>
+            <PointSymbolizer file="[flag_file]" allow-overlap="no" />
+        </Rule>
+        <Rule>
+            &maxscale_zoom5;
+            &minscale_zoom5;
+            <Filter>([type] = 'Sovereign country' or [type] = 'Country') and [pop_est] &gt; 1000000 </Filter>
+            <PointSymbolizer file="[flag_file]" allow-overlap="no" />
+        </Rule>
+    </Style>    
+    <Layer name="flags" status="on" srs="&srs_3857;">
+        <StyleName>flags</StyleName>
+        <Datasource>
+            <Parameter name="table">
+            <![CDATA[
+                (
+                SELECT centroid, name, 'national_flags_svg/Flag_of_' || replace(name,' ','_')  || '.png' as flag_file, labelrank, type, pop_est
+                FROM constant_data.ne_50m_admin_0_countries
+                ) AS flags
+            ]]>            
+            </Parameter>
+            <Parameter name="geometry_field">centroid</Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+    
+    <Style name="base_highway">
+        <Rule>
+            &maxscale_zoom6;
+            &minscale_zoom15;
+            <Filter>[highway] = 'primary' or [highway] = 'motorway'</Filter>
+            <LineSymbolizer stroke="#000000" stroke-width="0.5"/>
+        </Rule>
+        <Rule>
+            &maxscale_zoom7;
+            &minscale_zoom15;
+            <Filter>[highway] = 'secondary'</Filter>
+            <LineSymbolizer stroke="#000000" stroke-width="0.3"/>
+        </Rule>
+        <Rule>
+            &maxscale_zoom8;
+            &minscale_zoom15;
+            <Filter>not [highway] = 'secondary' and not [highway] = 'primary'</Filter>
+            <LineSymbolizer stroke="#000000" stroke-width="0.15"/>
+        </Rule>
+    </Style>
+    <Layer name="base_highway" status="on" srs="&srs_3857;">
+        <StyleName>base_highway</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *, tags->'int_ref' as int_ref
+                FROM osm_data.base_highway
+                ) AS base_highway
+            </Parameter>
+            <Parameter name="clear-label-cache">true</Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer> 
+    
+
+
+    <Style name="base_boundary_capital">
+        <Rule>
+            &maxscale_zoom6;
+            &minscale_zoom7;
+            <Filter>[capital] = 'yes'</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#CC3300" halo-radius="8" text-transform="uppercase" size="20" fill="black" placement="interior" allow-overlap="true">[name]</TextSymbolizer>
+        </Rule>
+    </Style>
+    <Layer name="base_boundary_capital" status="off" srs="&srs_3857;">
+        <StyleName>base_boundary_capital</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT name,admin_level,way,tags->'capital' as capital
+                FROM osm_data.base_boundary
+                WHERE (tags->'capital') is not null
+                ) AS base_boundary
+            </Parameter>
+            <Parameter name="geometry_field">way</Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+
+    <Style name="ne_50m_populated_places">
+        <Rule>
+            &maxscale_zoom6;
+            &minscale_zoom10;
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#CC3300"  halo-radius="6" text-transform="uppercase" size="15" fill="black" placement="interior" allow-overlap="true">[name]</TextSymbolizer>
+        </Rule>
+    </Style>
+    <Layer name="ne_50m_populated_places" status="on" srs="&srs_3857;">
+        <StyleName>ne_50m_populated_places</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM constant_data.ne_50m_populated_places
+                ) AS ne_50m_populated_places
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>    
+
+    
+    
+    <Style name="base_building">
+        <Rule>
+            &maxscale_zoom11;
+            &minscale_zoom15;
+            <PolygonSymbolizer fill-opacity="1.0" fill="#CC3300"/>
+        </Rule>
+    </Style>    
+    <Layer name="base_building" status="on" srs="&srs_3857;">
+        <StyleName>base_building</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.base_building
+                ) AS base_building
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+    
+    
+    
+    <Style name="base_aeroway">
+        <Rule>
+            &maxscale_zoom9;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="airport.png"/>
+        </Rule>
+    </Style>    
+    <Layer name="base_aeroway" status="on" srs="&srs_3857;">
+        <StyleName>base_aeroway</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.base_aeroway
+                WHERE aeroway = 'terminal'
+                ) AS base_aeroway
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>   
+    
+    <Style name="base_boundary">
+        <Rule>
+            &maxscale_zoom11;
+            &minscale_zoom15;
+             <Filter>[admin_level] = '4' or [admin_level] = '5' or [admin_level] = '6' or [admin_level] = '7' or [admin_level] = '8'</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#CC3300" minimum-padding="20" halo-radius="8" text-transform="uppercase" size="20" fill="black" placement="interior" allow-overlap="false">[name]</TextSymbolizer>
+        </Rule>
+    </Style>
+    <Layer name="base_boundary" status="on" srs="&srs_3857;">
+        <StyleName>base_boundary</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT name,admin_level,way
+                FROM osm_data.base_boundary
+                ) AS base_boundary
+            </Parameter>
+            <Parameter name="geometry_field">way</Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+    <Style name="base_highway_label">
+        <Rule>
+            &maxscale_zoom13;
+            &minscale_zoom15;
+            <Filter>[highway] = 'primary' or [highway] = 'motorway'</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" minimum-path-length="200" minimum-distance="50" clip="false" halo-fill="#000000" minimum-padding="20" halo-radius="5" text-transform="uppercase" size="15" fill="white" placement="point" allow-overlap="false" avoid-edges="true" >[name]</TextSymbolizer>
+        </Rule>
+        <Rule>
+            &maxscale_zoom14;
+            &minscale_zoom15;
+            <Filter>[highway] = 'secondary'</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" minimum-path-length="50" minimum-distance="50" clip="false" halo-fill="#000000" minimum-padding="20"  halo-radius="4" text-transform="uppercase" size="12" fill="white" placement="point" allow-overlap="false" avoid-edges="true" >[name]</TextSymbolizer>
+        </Rule>
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <Filter>not [highway] = 'secondary' and not [highway] = 'primary'</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" minimum-path-length="50" minimum-distance="50" clip="false" halo-fill="#000000" minimum-padding="20" halo-radius="3" text-transform="uppercase" size="10" fill="white" placement="point" allow-overlap="false" avoid-edges="true" >[name]</TextSymbolizer>
+        </Rule>
+    </Style>
+    <Layer name="base_highway_label" status="on" srs="&srs_3857;">
+        <StyleName>base_highway_label</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT highway,name, way
+                FROM osm_data.base_highway
+                ) AS base_highway_label
+            </Parameter>
+            <Parameter name="clear-label-cache">true</Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>    
+
+    <!-- disabled  -->
+    <Layer name="addr_number" status="off" srs="&srs_3857;">
+        <StyleName>addr_number</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.addr_number
+                ) AS addr_number
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+
+    <!-- disabled  -->    
+    <Layer name="amen_education" status="off" srs="&srs_3857;">
+        <StyleName>amen_education</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.amen_education
+                ) AS amen_education
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+    
+    <Style name="amen_health">
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="doctor.png"/>
+        </Rule>
+    </Style>
+    <Layer name="amen_health" status="on" srs="&srs_3857;">
+        <StyleName>amen_health</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.amen_health
+                ) AS amen_health
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>    
+    
+    <Style name="amen_restaurant">
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="restaurant.png"/>
+        </Rule>
+    </Style>    
+    <Layer name="amen_restaurant" status="on" srs="&srs_3857;">
+        <StyleName>amen_restaurant</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.amen_restaurant
+                ) AS amen_restaurant
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Style name="shop_car">
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="car.png"/>
+        </Rule>
+    </Style>    
+    <Layer name="shop_car" status="on" srs="&srs_3857;">
+        <StyleName>shop_car</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.shop_car
+                ) AS shop_car
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Style name="shop_cloth">
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="clothes.png"/>
+        </Rule>
+    </Style>    
+    <Layer name="shop_cloth" status="on" srs="&srs_3857;">
+        <StyleName>shop_cloth</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.shop_cloth
+                ) AS shop_cloth
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Style name="shop_computer">
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="computer.png"/>
+        </Rule>
+    </Style>
+    <Layer name="shop_computer" status="on" srs="&srs_3857;">
+        <StyleName>shop_computer</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.shop_computer
+                ) AS shop_computer
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>
+
+    <Style name="shop_supermarket">
+        <Rule>
+            &maxscale_zoom15;
+            &minscale_zoom15;
+            <MarkersSymbolizer file="supermarket.png"/>
+        </Rule>
+    </Style>    
+    <Layer name="shop_supermarket" status="on" srs="&srs_3857;">
+        <StyleName>shop_supermarket</StyleName>
+        <Datasource>
+            <Parameter name="table">
+                (
+                SELECT *
+                FROM osm_data.shop_supermarket
+                ) AS shop_supermarket
+            </Parameter>
+            <Parameter name="type">&db_type;</Parameter>
+            <Parameter name="password">&db_password;</Parameter>
+            <Parameter name="host">&db_host;</Parameter>
+            <Parameter name="port">&db_port;</Parameter>
+            <Parameter name="user">&db_user;</Parameter>
+            <Parameter name="dbname">&db_name;</Parameter>
+            <Parameter name="estimate_extent">&db_estimate_extent;</Parameter>
+            <Parameter name="extent">&db_generic_extent;</Parameter>
+        </Datasource>
+    </Layer>    
+    
     
 </Map>
 
