@@ -7,6 +7,46 @@ INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribut
 INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (6,'constant_data.ne_50m_admin_0_countries',10,'','id','geom');
 INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (6,'constant_data.ne_50m_populated_places',20,'','id','buffer');
 INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (6,'osm_data.base_highway',30,'','id','way');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (7,'constant_data.ne_50m_admin_0_countries',10,'','id','geom');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (7,'constant_data.ne_50m_populated_places',20,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (7,'osm_data.base_highway',30,'','id','way');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (8,'constant_data.ne_50m_admin_0_countries',10,'','id','geom');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (8,'constant_data.ne_50m_populated_places',20,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (8,'osm_data.base_highway',30,'','id','way');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (9,'constant_data.ne_50m_admin_0_countries',10,'','id','geom');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (9,'constant_data.ne_50m_populated_places',20,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (9,'osm_data.base_aeroway',30,'','id','st_buffer(way,5000.0)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (9,'osm_data.base_highway',40,'','id','way');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (10,'constant_data.ne_50m_admin_0_countries',10,'','id','geom');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (10,'constant_data.ne_50m_populated_places',20,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (10,'osm_data.base_aeroway',30,'','id','st_buffer(way,2500.0)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (10,'osm_data.base_highway',40,'','id','way');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (11,'constant_data.ne_50m_populated_places',10,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (11,'osm_data.base_aeroway',30,'','id','st_buffer(way,1200.0)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (11,'osm_data.base_highway',40,'','id','way');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (12,'constant_data.ne_50m_populated_places',10,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (12,'osm_data.base_aeroway',30,'','id','st_buffer(way,600.0)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (12,'osm_data.base_highway',40,'','id','way');
+
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (13,'constant_data.ne_50m_populated_places',10,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (13,'osm_data.base_aeroway',30,'','id','st_buffer(way,300.0)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (13,'osm_data.base_highway',40,'','id','way');
+
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (14,'constant_data.ne_50m_populated_places',10,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (14,'osm_data.base_aeroway',30,'','id','st_buffer(way,150.0)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (14,'osm_data.base_highway',40,'','id','way');
+
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'constant_data.ne_50m_populated_places',10,'','id','buffer');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.base_aeroway',40,'','id','st_expand(way,75)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.shop_supermarket',50,'','id','st_expand(way,75)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.shop_computer',60,'','id','st_expand(way,75)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.shop_car',70,'','id','st_expand(way,75)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.amen_restaurant',80,'','id','st_expand(way,75)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.amen_health',90,'','id','st_expand(way,75)');
+INSERT INTO manager.id_layers (zoom,table_name,position,where_clause,id_attribute_name,geometry_name) VALUES (15,'osm_data.base_highway',30,'','id','way');
+
+
+
                         
                         
 INSERT INTO manager.labels (table_name,column_name,label,position) VALUES ('ne_50m_admin_0_countries','_table_name_','Country',0);

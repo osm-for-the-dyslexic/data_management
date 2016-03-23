@@ -273,14 +273,14 @@
     
 
 
-    <Style name="base_boundary_capital">
+<!--    <Style name="base_boundary_capital">
         <Rule>
             &maxscale_zoom6;
-            &minscale_zoom7;
+            &minscale_zoom6;
             <Filter>[capital] = 'yes'</Filter>
             <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#CC3300" halo-radius="8" text-transform="uppercase" size="20" fill="black" placement="interior" allow-overlap="true">[name]</TextSymbolizer>
         </Rule>
-    </Style>
+    </Style> -->
     <Layer name="base_boundary_capital" status="off" srs="&srs_3857;">
         <StyleName>base_boundary_capital</StyleName>
         <Datasource>
@@ -307,6 +307,12 @@
     <Style name="ne_50m_populated_places">
         <Rule>
             &maxscale_zoom6;
+            &minscale_zoom6;
+            <Filter>[scalerank] = 0 or [scalerank] = 1 or [scalerank] = 2</Filter>
+            <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#CC3300"  halo-radius="6" text-transform="uppercase" size="15" fill="black" placement="interior" allow-overlap="true">[name]</TextSymbolizer>
+        </Rule>
+        <Rule>
+            &maxscale_zoom7;
             &minscale_zoom10;
             <TextSymbolizer face-name="OpenDyslexicAlta Regular" halo-fill="#CC3300"  halo-radius="6" text-transform="uppercase" size="15" fill="black" placement="interior" allow-overlap="true">[name]</TextSymbolizer>
         </Rule>

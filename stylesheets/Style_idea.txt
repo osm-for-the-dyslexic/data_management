@@ -50,8 +50,7 @@ Iceland:        7 --> 12
   (A) simplified_land_polygons              (Polygon)
     
 * Level 6
-  (H) ne_50m_populated_places               (Text)
-  (G) base_boundary_capital                 (Text)           [capital = yes]
+  (H) ne_50m_populated_places               (Text)           [scalerank = 0 or 1 or 2 ]
   (F) base_highway                          (Line)           [motorway and primary]
   (D) ne_50m_admin_0_countries              (Line)           [thick line]
   (B) ne_50m_urban_areas                    (Polygon)
@@ -59,8 +58,7 @@ Iceland:        7 --> 12
   (A) simplified_land_polygons              (Polygon)
 
 * Level 7
-  (H) ne_50m_populated_places               (Text)
-  (G) base_boundary_capital                 (Text)           [capital = yes]
+  (H) ne_50m_populated_places               (Text)           [all]
   (F) base_highway                          (Line)           [motorway and primary]
   (F) base_highway                          (Line)           [secondary]
   (D) ne_50m_admin_0_countries              (Line)           [thick line]
