@@ -39,6 +39,7 @@ $$
         #-- hack for putting tags to the root 
         payload = payload.replace('"Tags":{','',1);
         payload = payload.replace('},',',',1);
+        payload = payload.replace(',,',',');
         id = retv02[i]["id"]
         #-- (subdir,sep,lastpart) = id.partition("-")
         subdir = id[0:3]
